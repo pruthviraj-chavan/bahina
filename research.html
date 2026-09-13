@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bahina Research — Generating knowledge, evidence and ideas for a better future. Policy-relevant research across ecology, social development and cultural heritage in India.">
+  <title>Bahina Research — Knowledge & Evidence | Bahina Foundation</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/division.css">
+  <style>
+    /* Research-specific accent overrides */
+    .pillar-card.research-color { border-top-color: var(--c-forest); }
+
+    .research-themes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-8);
+      margin-top: var(--sp-12);
+    }
+
+    .theme-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      padding: var(--sp-8);
+      background: var(--c-white);
+      border-radius: var(--r-xl);
+      border-left: 4px solid var(--c-forest);
+    }
+
+    .theme-card__num {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--c-ivory-deeper);
+      line-height: 1;
+    }
+
+    .theme-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--c-charcoal);
+    }
+
+    .theme-card__desc {
+      font-size: var(--fs-sm);
+      line-height: 1.75;
+      color: var(--c-text-muted);
+    }
+
+    .publications-section {
+      background: var(--c-ivory);
+      padding-block: var(--sp-24);
+    }
+
+    .publications-table {
+      width: 100%;
+      margin-top: var(--sp-10);
+      border: 1px solid var(--c-ivory-deeper);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .pub-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: var(--sp-6);
+      align-items: center;
+      padding: var(--sp-5) var(--sp-6);
+      border-bottom: 1px solid var(--c-ivory-deeper);
+      background: var(--c-white);
+      transition: background var(--t-fast);
+    }
+
+    .pub-row:last-child { border-bottom: none; }
+    .pub-row:hover { background: var(--c-ivory); }
+
+    .pub-title {
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--c-charcoal);
+      line-height: 1.4;
+    }
+
+    .pub-year {
+      font-size: var(--fs-xs);
+      color: var(--c-text-light);
+      white-space: nowrap;
+    }
+
+    .pub-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2em 0.7em;
+      border-radius: var(--r-full);
+      background: rgba(44,74,46,0.1);
+      color: var(--c-forest);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .research-themes-grid { grid-template-columns: 1fr; }
+      .pub-row { grid-template-columns: 1fr; gap: var(--sp-2); }
+      .pub-year, .pub-tag { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav" data-transparent="true" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Bahina Foundation Home">
+        <span class="nav__logo-name">Bahina Foundation</span>
+        <span class="nav__logo-tagline">People · Knowledge · Places</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="ngo.html" class="nav__link">NGO</a></li>
+        <li><a href="research.html" class="nav__link" style="color:var(--c-gold)">Research</a></li>
+        <li><a href="hospitality.html" class="nav__link">Hospitality</a></li>
+        <li><a href="index.html#news" class="nav__link">News</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="index.html#get-involved" class="btn btn-primary btn-sm">Donate</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__mobile" id="mobile-menu" role="menu">
+      <a href="index.html" class="nav__mobile-link">Home</a>
+      <a href="ngo.html" class="nav__mobile-link">NGO</a>
+      <a href="research.html" class="nav__mobile-link">Research</a>
+      <a href="hospitality.html" class="nav__mobile-link">Hospitality</a>
+      <a href="index.html#get-involved" class="btn btn-primary" style="margin-top:0.5rem">Donate</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="div-hero" aria-label="Research Division Hero">
+      <div class="div-hero__bg">
+        <img src="assets/images/research_hero.jpg" alt="Indian research institute campus reflected in a pond at dusk" loading="eager" fetchpriority="high">
+      </div>
+      <div class="div-hero__overlay"></div>
+      <div class="div-hero__content">
+        <div class="div-hero__badge">Bahina Research · Knowledge & Evidence</div>
+        <h1 class="div-hero__title">
+          Ideas and evidence for a more equitable India
+        </h1>
+        <p class="div-hero__sub">Bahina Research generates rigorous, policy-relevant knowledge across social development, ecology, economics and cultural heritage — bridging the gap between scholarship and practice.</p>
+        <div class="div-hero__actions">
+          <a href="#publications" class="btn btn-primary btn-lg">Our Publications</a>
+          <a href="#themes" class="btn btn-outline-white btn-lg">Research Themes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="div-intro section" id="about" aria-label="About Bahina Research">
+      <div class="container">
+        <p class="section-label">About the Division</p>
+        <div class="div-intro__inner">
+          <h2 class="div-intro__headline reveal">
+            Research that is rooted in India, rigorous in method, and relevant to people's lives
+          </h2>
+          <p class="div-intro__body reveal reveal-delay-1">
+            Bahina Research was established on the conviction that evidence should inform compassion, and that the communities most affected by policy deserve to have research conducted <em>with</em> them, not merely <em>about</em> them. Our approach is participatory, interdisciplinary and deeply contextual.
+          </p>
+          <br>
+          <p class="div-intro__body reveal reveal-delay-2">
+            We work alongside universities, civil society organisations, government departments and international research bodies to produce findings that are accessible, actionable and ethically grounded. Our research spans ecology, social policy, gender studies, economic development and living heritage — the full breadth of what makes India's communities thrive or struggle.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="div-impact" aria-label="Research Division impact numbers">
+      <div class="container">
+        <div class="div-impact__grid">
+          <div class="div-impact__item reveal">
+            <div class="div-impact__num"><span data-counter="140" data-suffix="+">140<span class="plus">+</span></span></div>
+            <div class="div-impact__label">Publications & Reports</div>
+          </div>
+          <div class="div-impact__item reveal reveal-delay-1">
+            <div class="div-impact__num"><span data-counter="48" data-suffix="+">48<span class="plus">+</span></span></div>
+            <div class="div-impact__label">Research Partners</div>
+          </div>
+          <div class="div-impact__item reveal reveal-delay-2">
+            <div class="div-impact__num"><span data-counter="18">18</span></div>
+            <div class="div-impact__label">Active Field Studies</div>
+          </div>
+          <div class="div-impact__item reveal reveal-delay-3">
+            <div class="div-impact__num"><span data-counter="12">12</span></div>
+            <div class="div-impact__label">Policies Informed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH THEMES -->
+    <section class="div-pillars section" id="themes" aria-label="Research themes">
+      <div class="container">
+        <p class="section-label">Research Themes</p>
+        <h2 class="h-2 reveal" style="color:var(--c-charcoal); max-width:520px; margin-top:1rem">
+          Four integrated lenses on India's social and ecological reality
+        </h2>
+        <div class="research-themes-grid">
+          <div class="theme-card reveal">
+            <div class="theme-card__num">01</div>
+            <h3 class="theme-card__title">Ecology & Environmental Governance</h3>
+            <p class="theme-card__desc">Investigating forest commons, biodiversity corridors, coastal ecosystems, watershed dynamics and community-led conservation across India's most ecologically significant regions.</p>
+          </div>
+          <div class="theme-card reveal reveal-delay-1">
+            <div class="theme-card__num">02</div>
+            <h3 class="theme-card__title">Rural Livelihoods & Economic Development</h3>
+            <p class="theme-card__desc">Field-based research on smallholder agriculture, informal economies, migration, women's enterprise and the political economy of rural transformation in South Asia.</p>
+          </div>
+          <div class="theme-card reveal reveal-delay-2">
+            <div class="theme-card__num">03</div>
+            <h3 class="theme-card__title">Gender, Rights & Social Equity</h3>
+            <p class="theme-card__desc">Longitudinal studies on gender-based discrimination, land rights, access to public goods, political participation and the lived experience of marginalised communities.</p>
+          </div>
+          <div class="theme-card reveal reveal-delay-3">
+            <div class="theme-card__num">04</div>
+            <h3 class="theme-card__title">Heritage, Culture & Living Traditions</h3>
+            <p class="theme-card__desc">Documenting and analysing India's intangible cultural heritage, traditional knowledge systems, craft economies and the intersection of tourism, identity and conservation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GRID -->
+    <section class="div-photo-grid section" aria-label="Research photography">
+      <div class="container">
+        <p class="section-label">In the Field & Lab</p>
+        <div class="div-photo-grid__grid">
+          <div class="div-photo-grid__item large">
+            <img src="assets/images/research_hero.jpg" alt="Research institute campus at dusk reflected in a pond" loading="lazy">
+          </div>
+          <div class="div-photo-grid__item">
+            <img src="assets/images/research_card.jpg" alt="Indian scientist examining plant specimens at a microscope" loading="lazy">
+          </div>
+          <div class="div-photo-grid__item">
+            <img src="assets/images/news2.jpg" alt="Researchers presenting findings at an outdoor symposium" loading="lazy">
+          </div>
+          <div class="div-photo-grid__item">
+            <img src="assets/images/fullbleed.jpg" alt="Terraced rice fields — a research landscape" loading="lazy">
+          </div>
+          <div class="div-photo-grid__item">
+            <img src="assets/images/ngo_card.jpg" alt="Community members in a participatory research session" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="publications-section" id="publications" aria-label="Research publications">
+      <div class="container">
+        <p class="section-label">Publications</p>
+        <h2 class="h-2 reveal" style="color:var(--c-charcoal); max-width:520px; margin-top:1rem">
+          Selected publications — 2022 to 2026
+        </h2>
+        <div class="publications-table reveal reveal-delay-1" role="list">
+          <div class="pub-row" role="listitem">
+            <span class="pub-title">Gender, Land and Livelihood in Central India: A Multi-State Study</span>
+            <span class="pub-tag">Social Equity</span>
+            <span class="pub-year">2025</span>
+          </div>
+          <div class="pub-row" role="listitem">
+            <span class="pub-title">Forest Commons Governance and Community Resilience in Uttarakhand</span>
+            <span class="pub-tag">Ecology</span>
+            <span class="pub-year">2024</span>
+          </div>
+          <div class="pub-row" role="listitem">
+            <span class="pub-title">Coastal Biodiversity Monitoring: South India Longitudinal Report</span>
+            <span class="pub-tag">Ecology</span>
+            <span class="pub-year">2024</span>
+          </div>
+          <div class="pub-row" role="listitem">
+            <span class="pub-title">Heritage, Identity and Tourism in Rajasthan's Shekhawati Region</span>
+            <span class="pub-tag">Heritage</span>
+            <span class="pub-year">2023</span>
+          </div>
+          <div class="pub-row" role="listitem">
+            <span class="pub-title">Informal Labour Markets and Women's Economic Agency in Maharashtra</span>
+            <span class="pub-tag">Livelihoods</span>
+            <span class="pub-year">2023</span>
+          </div>
+          <div class="pub-row" role="listitem">
+            <span class="pub-title">Drought Adaptation and Water Governance in Semi-Arid Rajasthan</span>
+            <span class="pub-tag">Ecology</span>
+            <span class="pub-year">2022</span>
+          </div>
+          <div class="pub-row" role="listitem">
+            <span class="pub-title">Panchayati Raj, Participation and Development Outcomes: A Village-Level Analysis</span>
+            <span class="pub-tag">Governance</span>
+            <span class="pub-year">2022</span>
+          </div>
+        </div>
+        <div style="margin-top:2rem">
+          <a href="#" class="arrow-link gold reveal">Download full publications list (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILLARS / APPROACH -->
+    <section class="div-pillars section" aria-label="Research approach">
+      <div class="container">
+        <p class="section-label">Our Approach</p>
+        <h2 class="h-2 reveal" style="color:var(--c-charcoal); max-width:520px; margin-top:1rem">How we work</h2>
+        <div class="div-pillars__grid">
+          <div class="pillar-card research-color reveal">
+            <div class="pillar-card__icon" aria-hidden="true">🤝</div>
+            <h3 class="pillar-card__title">Participatory Methods</h3>
+            <p class="pillar-card__desc">Our research is designed and conducted alongside the communities it serves, ensuring that local knowledge and lived experience shape the research questions and findings.</p>
+          </div>
+          <div class="pillar-card research-color reveal reveal-delay-1">
+            <div class="pillar-card__icon" aria-hidden="true">🔬</div>
+            <h3 class="pillar-card__title">Interdisciplinary Rigour</h3>
+            <p class="pillar-card__desc">We bring together ecologists, economists, anthropologists, public health researchers and policy experts to address complex, multi-dimensional challenges.</p>
+          </div>
+          <div class="pillar-card research-color reveal reveal-delay-2">
+            <div class="pillar-card__icon" aria-hidden="true">📡</div>
+            <h3 class="pillar-card__title">Open Access Policy</h3>
+            <p class="pillar-card__desc">All Bahina Research publications are freely available. We believe knowledge generated in the public interest must be accessible to all — especially those affected by our findings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="div-partners" aria-label="Research partners">
+      <div class="container">
+        <p class="section-label" style="justify-content:center; text-align:center">Academic & Research Partners</p>
+        <div class="div-partners__grid">
+          <span class="div-partner-logo">IIM Ahmedabad</span>
+          <span class="div-partner-logo">JNU New Delhi</span>
+          <span class="div-partner-logo">ATREE Bengaluru</span>
+          <span class="div-partner-logo">TERI</span>
+          <span class="div-partner-logo">Oxford Policy Mgmt</span>
+          <span class="div-partner-logo">IIFM Bhopal</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="div-cta" aria-label="Collaborate with Bahina Research">
+      <div class="container">
+        <div class="div-cta__inner">
+          <p class="section-label light" style="justify-content:center">Collaborate</p>
+          <h2 class="div-cta__headline">Partner with us on research that matters</h2>
+          <p class="div-cta__sub">We welcome research collaborations, fellowships, and academic partnerships. If you work on issues related to India's ecology, social development or cultural heritage, let's talk.</p>
+          <div class="div-cta__actions">
+            <a href="#" class="btn btn-primary btn-lg">Propose a Collaboration</a>
+            <a href="#publications" class="btn btn-outline-white btn-lg">View Publications</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <div class="footer__brand-name">Bahina Foundation</div>
+          <div class="footer__brand-tagline">People · Knowledge · Places</div>
+          <p class="footer__brand-desc">A multi-disciplinary Indian foundation working at the intersection of social impact, research and hospitality since 2010.</p>
+        </div>
+        <div>
+          <div class="footer__col-title">Foundation</div>
+          <ul class="footer__links">
+            <li><a href="index.html#about" class="footer__link">About Bahina</a></li>
+            <li><a href="#" class="footer__link">Leadership</a></li>
+            <li><a href="#" class="footer__link">Annual Reports</a></li>
+            <li><a href="#" class="footer__link">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Divisions</div>
+          <ul class="footer__links">
+            <li><a href="ngo.html" class="footer__link">Bahina NGO</a></li>
+            <li><a href="research.html" class="footer__link">Bahina Research</a></li>
+            <li><a href="hospitality.html" class="footer__link">Bahina Hospitality</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Engage</div>
+          <ul class="footer__links">
+            <li><a href="index.html#get-involved" class="footer__link">Donate</a></li>
+            <li><a href="#" class="footer__link">Collaborate</a></li>
+            <li><a href="#" class="footer__link">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Bahina Foundation. All rights reserved. Registered NGO, India.</p>
+        <div class="footer__bottom-links">
+          <a href="#" class="footer__bottom-link">Privacy Policy</a>
+          <a href="#" class="footer__bottom-link">Terms of Use</a>
+          <a href="#" class="footer__bottom-link">80G / FCRA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
